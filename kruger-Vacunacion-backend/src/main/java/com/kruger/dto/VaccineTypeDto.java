@@ -15,6 +15,7 @@ public class VaccineTypeDto {
 	private String name;
 	
 	@NotNull(message = "{description_required}")
+	@Size(min = 1, message = "{description_size}")
 	private String description;
 	
 

@@ -40,8 +40,8 @@ public class VaccineTypeController {
 	@PostMapping
 	public ResponseEntity<Void> create(@Valid @RequestBody VaccineTypeDto dtoRequest ) throws Exception {
 		VaccineType vaccineType = mapper.map(dtoRequest, VaccineType.class);
-		//VaccineType obj = vTypeService.save(vaccineType);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(1).toUri();
+		VaccineType obj = vTypeService.save(vaccineType);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdVaccineType()).toUri();
 		return ResponseEntity.created(location).build();
 		
 	}
