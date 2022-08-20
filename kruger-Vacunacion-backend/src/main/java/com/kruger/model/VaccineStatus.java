@@ -17,6 +17,7 @@ public class VaccineStatus {
 	
 	@Column(name = "description", nullable = false, length = 150)
 	private String description;
+	
 
 	public Integer getIdVaccineStatus() {
 		return idVaccineStatus;

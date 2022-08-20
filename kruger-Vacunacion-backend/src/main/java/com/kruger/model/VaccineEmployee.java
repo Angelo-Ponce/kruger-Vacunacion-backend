@@ -32,6 +32,7 @@ public class VaccineEmployee {
 	@Column(nullable = false)
 	private Integer doseNumbers;
 
+	
 	public Integer getIdVaccineEmployee() {
 		return idVaccineEmployee;
 	}

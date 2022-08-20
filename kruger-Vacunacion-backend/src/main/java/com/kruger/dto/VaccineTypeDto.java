@@ -1,26 +1,21 @@
-package com.kruger.model;
+package com.kruger.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-@Entity
-@Table( name = "vaccinetype")
-public class VaccineType {
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "Tipo de Vacuna")
+public class VaccineTypeDto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idVaccineType;
 	
-	@Column(name = "name", nullable = false, length = 50)
+	@NotNull(message = "{name_required}")
+	@Size(min = 1, message = "{name_size}")
 	private String name;
 	
-	@Column(name = "description", nullable = false, length = 150)
+	@NotNull(message = "{description_required}")
 	private String description;
-	
 	
 
 	public Integer getIdVaccineType() {
@@ -46,5 +41,5 @@ public class VaccineType {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 }
