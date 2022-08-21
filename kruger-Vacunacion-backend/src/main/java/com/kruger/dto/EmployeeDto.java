@@ -1,10 +1,16 @@
 package com.kruger.dto;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.kruger.model.VaccineEmployee;
+import com.kruger.model.VaccineStatus;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -36,6 +42,18 @@ public class EmployeeDto {
 	@NotEmpty(message="{email.empty}")
 	@Email
 	private String email;
+	
+	private LocalDateTime dateOfBirth;
+	
+	private String address;
+	
+	private String phone;
+	
+	@Schema(description = "Vaccine status the employee")
+	private VaccineStatusDto vaccineStatus;
+	
+	@Schema(description = "Vaccine employee")
+	private List<VaccineEmployeeDto> vaccineEmployee;
 
 	
 	public Integer getIdEmployee() {
@@ -78,4 +96,44 @@ public class EmployeeDto {
 		this.email = email;
 	}
 
+	public LocalDateTime getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public VaccineStatusDto getVaccineStatus() {
+		return vaccineStatus;
+	}
+
+	public void setVaccineStatus(VaccineStatusDto vaccineStatus) {
+		this.vaccineStatus = vaccineStatus;
+	}
+
+	public List<VaccineEmployeeDto> getVaccineEmployee() {
+		return vaccineEmployee;
+	}
+
+	public void setVaccineEmployee(List<VaccineEmployeeDto> vaccineEmployee) {
+		this.vaccineEmployee = vaccineEmployee;
+	}
+	
 }

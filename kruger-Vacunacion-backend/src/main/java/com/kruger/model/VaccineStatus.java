@@ -15,7 +15,7 @@ public class VaccineStatus {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idVaccineStatus;
 	
-	@Column(name = "description", nullable = false, length = 150)
+	@Column(name = "description", nullable = false, length = 150, unique = true)
 	private String description;
 	
 
