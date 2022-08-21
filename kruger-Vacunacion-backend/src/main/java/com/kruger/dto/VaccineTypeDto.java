@@ -10,12 +10,12 @@ public class VaccineTypeDto {
 	
 	private Integer idVaccineType;
 	
-	@NotNull(message = "{name_required}")
-	@Size(min = 1, message = "{name_size}")
+	@NotNull(message = "{name.required}")
+	@Size(min = 1, message = "{name.size}")
 	private String name;
 	
-	@NotNull(message = "{description_required}")
-	@Size(min = 1, message = "{description_size}")
+	@NotNull(message = "{description.required}")
+	@Size(min = 1, message = "{description.size}")
 	private String description;
 	
 
