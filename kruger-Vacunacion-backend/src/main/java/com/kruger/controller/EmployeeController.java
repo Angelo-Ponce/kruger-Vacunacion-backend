@@ -24,7 +24,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.kruger.dto.EmployeeDto;
 import com.kruger.dto.EmployeeOnlyDto;
 import com.kruger.dto.FilterIdDto;
-import com.kruger.dto.VaccineEmployeeDto;
 import com.kruger.exception.ModelNotFoundException;
 import com.kruger.model.Employee;
 import com.kruger.model.VaccineStatus;

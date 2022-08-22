@@ -1,7 +1,6 @@
 package com.kruger.service.impl;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,14 +8,10 @@ import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.kruger.constants.Constants;
-import com.kruger.dto.EmployeeDto;
 import com.kruger.dto.EmployeeOnlyDto;
-import com.kruger.dto.VaccineEmployeeDto;
 import com.kruger.model.Employee;
 import com.kruger.model.VaccineEmployee;
 import com.kruger.model.VaccineStatus;

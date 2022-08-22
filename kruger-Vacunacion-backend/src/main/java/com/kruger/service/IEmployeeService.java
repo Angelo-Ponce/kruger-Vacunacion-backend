@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.kruger.dto.EmployeeOnlyDto;
-import com.kruger.dto.VaccineEmployeeDto;
 import com.kruger.model.Employee;
 import com.kruger.model.VaccineStatus;
 import com.kruger.model.VaccineType;

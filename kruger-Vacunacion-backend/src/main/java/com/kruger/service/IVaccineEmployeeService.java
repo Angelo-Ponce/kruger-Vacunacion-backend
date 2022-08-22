@@ -3,8 +3,6 @@ package com.kruger.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.data.repository.query.Param;
-
 import com.kruger.model.VaccineEmployee;
 import com.kruger.model.VaccineType;
 
