@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -121,6 +122,20 @@ public class EmployeeController {
 		EmployeeDto employeeDto = mapper.map(obj, EmployeeDto.class);
 		
 		return new ResponseEntity<>(employeeDto, HttpStatus.OK);
+	}
+	
+	
+	@PreAuthorize("@authServiceImpl.hasAccessSystem('deleteAll')")
+	@DeleteMapping("/removeemployee")
+	public ResponseEntity<Void> removeEmployee(@RequestBody FilterIdDto dtoRequest) throws Exception {
+		
+		Employee employee = employeeService.findById(dtoRequest.getId());
+		if(employee == null)
+			throw new ModelNotFoundException("Empleado no encontrado: " + dtoRequest.getId());
+		
+		employeeService.deleteById(dtoRequest.getId());
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 }

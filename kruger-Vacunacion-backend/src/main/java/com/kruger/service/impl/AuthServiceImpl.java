@@ -29,7 +29,7 @@ public class AuthServiceImpl {
 				nameRol = "ADMIN";
 				break;
 	
-			case "delete":
+			case "deleteAll":
 				nameRol = "ADMIN";
 				break;
 				
