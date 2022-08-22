@@ -1,7 +1,6 @@
 package com.kruger.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -9,15 +8,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.springframework.security.access.prepost.PreAuthorize;
-
-import com.kruger.model.VaccineEmployee;
-import com.kruger.model.VaccineStatus;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 
-public class EmployeeDto {
-
+public class EmployeeOnlyDto {
+	
 	private Integer idEmployee;
 	
 	@Schema(description = "Dni Employee")
@@ -51,14 +45,7 @@ public class EmployeeDto {
 	private String address;
 	
 	private String phone;
-	
-	@Schema(description = "Vaccine status the employee")
-	private VaccineStatusDto vaccineStatus;
-	
-	@Schema(description = "Vaccine employee")
-	private List<VaccineEmployeeDto> vaccineEmployee;
 
-	
 	public Integer getIdEmployee() {
 		return idEmployee;
 	}
@@ -121,22 +108,6 @@ public class EmployeeDto {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public VaccineStatusDto getVaccineStatus() {
-		return vaccineStatus;
-	}
-
-	public void setVaccineStatus(VaccineStatusDto vaccineStatus) {
-		this.vaccineStatus = vaccineStatus;
-	}
-
-	public List<VaccineEmployeeDto> getVaccineEmployee() {
-		return vaccineEmployee;
-	}
-
-	public void setVaccineEmployee(List<VaccineEmployeeDto> vaccineEmployee) {
-		this.vaccineEmployee = vaccineEmployee;
 	}
 	
 }

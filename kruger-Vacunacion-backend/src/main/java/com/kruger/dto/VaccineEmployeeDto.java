@@ -2,6 +2,7 @@ package com.kruger.dto;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,10 +17,12 @@ public class VaccineEmployeeDto {
 	@NotNull
 	private VaccineTypeDto vaccineType;
 	
-	@NotNull
+	@NotNull(message = "{vaccineDate.required}")
+	@NotEmpty(message = "{vaccineDate.empty}")
 	private LocalDateTime vaccineDate;
 	
-	@NotNull
+	@NotNull(message = "{doseNumbers.required}")
+	@NotEmpty(message = "{doseNumbers.empty}")
 	private Integer doseNumbers;
 
 	public Integer getIdVaccineEmployee() {

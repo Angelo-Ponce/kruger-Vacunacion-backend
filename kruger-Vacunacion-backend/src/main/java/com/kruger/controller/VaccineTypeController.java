@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,12 +32,14 @@ public class VaccineTypeController {
 	@Autowired
 	private ModelMapper mapper;
 	
+	@PreAuthorize("@authServiceImpl.hasAccessSystem('getAll')")
 	@GetMapping
 	public ResponseEntity<List<VaccineTypeDto>> getAll() throws Exception{
 		List<VaccineTypeDto> lstVaccine =  vTypeService.findAll().stream().map( vtype -> mapper.map( vtype, VaccineTypeDto.class)).collect(Collectors.toList());
 		return new ResponseEntity<List<VaccineTypeDto>>(lstVaccine, HttpStatus.OK);
 	}
 	
+	@PreAuthorize("@authServiceImpl.hasAccessSystem('create')")
 	@PostMapping
 	public ResponseEntity<Void> create(@Valid @RequestBody VaccineTypeDto dtoRequest ) throws Exception {
 		VaccineType vaccineType = mapper.map(dtoRequest, VaccineType.class);

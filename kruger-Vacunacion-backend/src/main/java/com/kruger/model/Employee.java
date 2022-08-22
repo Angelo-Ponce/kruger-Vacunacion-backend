@@ -23,7 +23,7 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEmployee;
 	
-	@Column(nullable = false, length = 10)
+	@Column(nullable = false, length = 10, unique = true)
 	private String dni;
 	
 	@Column(nullable = false, length = 50)
@@ -48,6 +48,7 @@ public class Employee {
 	@JoinColumn(name = "id_vaccine_status", nullable = true, foreignKey = @ForeignKey(name = "FK_em_va_status"))
     private VaccineStatus vaccineStatus;
 	
+	// validar cascade
 	@OneToMany(mappedBy = "employee", cascade = { CascadeType.ALL }, orphanRemoval = true)
 	private List<VaccineEmployee> vaccineEmployee;
 
