@@ -107,7 +107,7 @@ public class EmployeeController {
 	
 	@PreAuthorize("@authServiceImpl.hasAccessSystem('updateEmployee')")
 	@PutMapping
-	public ResponseEntity<Employee> update(@Valid @RequestBody EmployeeDto dtoRequest ) throws Exception {
+	public ResponseEntity<EmployeeDto> update(@Valid @RequestBody EmployeeDto dtoRequest ) throws Exception {
 		
 		Employee employee = employeeService.findById(dtoRequest.getIdEmployee());
 		if(employee == null)
@@ -118,7 +118,9 @@ public class EmployeeController {
 		
 		Employee obj = employeeService.saveOrUpdateEmployee(employee);
 		
-		return new ResponseEntity<>(obj, HttpStatus.OK);
+		EmployeeDto employeeDto = mapper.map(obj, EmployeeDto.class);
+		
+		return new ResponseEntity<>(employeeDto, HttpStatus.OK);
 	}
 	
 }

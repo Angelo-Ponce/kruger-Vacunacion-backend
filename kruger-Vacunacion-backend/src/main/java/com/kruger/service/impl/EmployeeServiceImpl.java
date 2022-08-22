@@ -52,8 +52,8 @@ public class EmployeeServiceImpl extends CRUDServiceImpl<Employee, Integer> impl
 			}
 		}
 		
-		employeeRepo.save(employee);		
-		return employee;
+		Employee obj =  employeeRepo.save(employee);		
+		return obj;
 	}
 
 	@Override
